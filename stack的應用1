@@ -1,0 +1,9 @@
+a=[]
+a.append(3)
+a.append(4)
+a.append(5
+print(a) # 3 4 5
+b=a.pop()
+print(b) # 5
+print(a) # 3 4
+a.append(6)
