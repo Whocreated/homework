@@ -1,0 +1,15 @@
+#lst=list(map(int, input("please enter:").split()))
+
+lst=[map(int, input("please enter:").split())]
+
+lst.append(6)
+
+lst.append(7)
+
+print(lst[::])
+
+for i in range(len(lst)):
+
+print(f"取出最後一項 : {lst.pop()}")
+
+print(*lst)#剩餘的
