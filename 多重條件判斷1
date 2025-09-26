@@ -1,0 +1,28 @@
+#include <bits/stdc++.h>
+using namespace std;
+int main(){
+{
+#include <bits/stdc++.h>
+using namespace std;
+
+int main() {
+    int score;
+    cin>>score;
+    if(score>=90){
+        cout<<"甲等，感恩的心";
+    }
+    else if(score>=80){
+        cout<<"乙等，沒事沒事";
+    }
+    else if(score>=70){
+        cout<<"丙等，還行";
+    }
+    else if(score>=60){
+        cout<<"丁等，差點被當";
+    }
+    else{
+        cout<<"戊等，我死定了";
+    }
+}
+
+}
