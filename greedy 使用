@@ -1,0 +1,11 @@
+while Ture:
+    try:
+        s,i=[1000,500,100,50,10,5,1],0
+        ans,money=[],int5(input())
+        while(money>0):
+            ans.append(money//a[i])
+            money%=s[i]
+            i+=1
+        print(*ans)
+    except:
+        break
