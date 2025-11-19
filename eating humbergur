@@ -1,22 +1,21 @@
 while True:
-n = int(input())
-if n == 0:
-break
+    n = int(input())
+    if n == 0:
+        break
 val = []
 ctime = 0 #點餐時間
 etime = 0 #吃飯時間
 #讀取點餐時間和用餐時間
 
-for_in range(n):
-c, e = map(int, input().split())
+for _ in range(n):
+    c, e = map(int, input().split())
 
 #為了讓客人可以慢慢吃故乘一個比較大的數
-
-val.append(e10000 + c)
+    val.append(e * 10000 + c)
 val.sort(reverse=True) #大到小排序
 #print(val)
 for i in range(n):
-e=val[i] // 10000
+    e=val[i] // 10000
 #print(e)
 c = val[i] % 10000
 #print(c)
@@ -25,7 +24,7 @@ ctime += c #餐點準備時間
 #如果吃飯時間比點餐時間更晚,則更新吃飯時間
 
 #print(ctime)
-if etime ctime + e:
-etime ctime + e
+if etime < ctime + e:
+    etime = ctime + e
 
 print(etime)
