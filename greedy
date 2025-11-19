@@ -1,25 +1,18 @@
 n = int(input())
-
 jb = []
 
 for i in range(n):
-
-s, e = map(int, input().split())
-
-jb.append((s, e)) #tuple
+    s, e = map(int, input().split())
+    jb.append((s, e)) #tuple
 
 jb.sort(key=lambda x: x[1])
 
 ans = 0 #計算可執行的工作件數
-
 now = -1 #目前的工作時間(因還沒開始工所作以設為-1)
 
 for i in range(n): #比較每一個工作的開始時間
-
-if now <= jb[i][0]: #如果現在時間小於執行工作的開始時間
-
-ans += 1
-
-now = jb[i][1] #將now的值設為下一個工作結束的時間
+    if now <= jb[i][0]: #如果現在時間小於執行工作的開始時間
+        ans += 1
+        now = jb[i][1] #將now的值設為下一個工作結束的時間
 
 print(ans)
