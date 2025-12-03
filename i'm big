@@ -1,0 +1,16 @@
+def add(x,y):
+    return x + y
+def subtract(x,y):
+    return x - y
+def multiply(x,y):
+    return x * y
+def divide(x,y):
+    return x / y
+def modulus(x,y):
+    return x % y
+n,m=map(int,input().split())
+print(f"{n}+{m}={add(n,m)}")
+print(f"{n}-{m}={subtract(n,m)}")
+print(f"{n}*{m}={multiply(n,m)}")
+print(f"{n}/{m}={divide(n,m)}")
+print(f"{n}%{m}={modulus(n,m)}")
