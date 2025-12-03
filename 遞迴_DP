@@ -1,9 +1,17 @@
+
+"""Fibonacci 數列的計算與擴展功能實現"""
+"""此程式碼含計算 Fibonacci 數列的多種方法"""
+"""包括遞迴、迭代和備忘錄方法，並新增計算總和、平均值、最大值、最小值和中位數的功能"""
+
+
+
+
 def fibonacci(n):
     # 如果 n 小於等於 1，直接返回 n
     if n <= 1:
         return n
     # 否則，遞迴計算前兩個數字的和
-    return fibonacci(n - 1) + fibonacci(n - 2) # 返回計算結果
+    return fibonacci(n - 1) + fibonacci(n - 2) # 返回計算結果 
 
 def fibonacci_sequence(n): # 返回前 n 個 Fibonacci 數字的列表
     return [fibonacci(i) for i in range(n)] # 使用列表生成式來生成 Fibonacci 數列
