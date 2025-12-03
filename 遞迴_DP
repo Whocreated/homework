@@ -1,0 +1,83 @@
+def fibonacci(n):
+    # 如果 n 小於等於 1，直接返回 n
+    if n <= 1:
+        return n
+    # 否則，遞迴計算前兩個數字的和
+    return fibonacci(n - 1) + fibonacci(n - 2) # 返回計算結果
+
+def fibonacci_sequence(n): # 返回前 n 個 Fibonacci 數字的列表
+    return [fibonacci(i) for i in range(n)] # 使用列表生成式來生成 Fibonacci 數列
+
+def fibonacci_iterative(n): # 使用迭代方法計算 Fibonacci 數列
+    sequence = [] # 初始化空列表來儲存 Fibonacci 數字
+    a, b = 0, 1 # 初始化前兩個 Fibonacci 數字
+    for _ in range(n): # 迭代 n 次
+        sequence.append(a) # 將當前的 Fibonacci 數字添加到列表中
+        a, b = b, a + b # 更新前兩個 Fibonacci 數字
+    return sequence # 返回 Fibonacci 數列
+
+def fibonacci_memoization(n, memo={}):
+    # 使用備忘錄來儲存已計算的 Fibonacci 數字
+    if n in memo:
+        return memo[n] # 如果已計算過，直接返回結果
+    if n <= 1:
+        return n # 基本情況
+    memo[n] = fibonacci_memoization(n - 1, memo) + fibonacci_memoization(n - 2, memo)# 儲存計算結果到備忘錄
+    return memo[n] # 返回計算結果
+
+# 新增：計算 Fibonacci 數列的總和
+def fibonacci_sum(n): # 計算前 n 個 Fibonacci 數字的總和
+    return sum(fibonacci_sequence(n)) # 返回 Fibonacci 數列的總和
+
+# 新增：計算 Fibonacci 數列的平均值
+def fibonacci_average(n): # 計算前 n 個 Fibonacci 數字的平均值
+    sequence = fibonacci_sequence(n) # 獲取 Fibonacci 數列
+    return sum(sequence) / len(sequence) if sequence else 0 # 返回平均值
+
+# 新增：計算 Fibonacci 數列的最大值
+def fibonacci_max(n): # 計算前 n 個 Fibonacci 數字的最大值
+    return max(fibonacci_sequence(n)) if n > 0 else 0 # 返回最大值
+
+# 新增：計算 Fibonacci 數列的最小值
+def fibonacci_min(n): # 計算前 n 個 Fibonacci 數字的最小值
+    return min(fibonacci_sequence(n)) if n > 0 else 0 # 返回最小值
+
+# 新增：計算 Fibonacci 數列的中位數
+def fibonacci_median(n): # 計算前 n 個 Fibonacci 數字的中位數
+    sequence = fibonacci_sequence(n) # 獲取 Fibonacci 數列
+    sorted_sequence = sorted(sequence) # 對數列進行排序
+    length = len(sorted_sequence) # 獲取數列長度
+    if length % 2 == 0: # 如果長度是偶數
+        return (sorted_sequence[length // 2 - 1] + sorted_sequence[length // 2]) / 2 # 返回中位數
+    else:
+        return sorted_sequence[length // 2] # 返回中位數
+
+# 測試函數
+if __name__ == "__main__": # 主程式入口
+    num = 10  # 設定要計算的 Fibonacci 數列的項數
+    print(f"Fibonacci({num}) = {fibonacci(num)}")  # 輸出結果
+    for i in range(num): # 測試前 num 個 Fibonacci 數字
+        print(f"Fibonacci({i}) = {fibonacci(i)}") # 輸出結果
+    
+    print(f"Fibonacci sequence up to {num}: {fibonacci_sequence(num)}") # 測試 Fibonacci 數列
+    
+    # 測試迭代版本
+    print(f"Fibonacci sequence (iterative) up to {num}: {fibonacci_iterative(num)}")
+    
+    # 測試備忘錄版本
+    print(f"Fibonacci sequence (memoization) up to {num}: {[fibonacci_memoization(i) for i in range(num)]}")
+    
+    # 測試 Fibonacci 數列的總和
+    print(f"Sum of Fibonacci sequence up to {num}: {fibonacci_sum(num)}")
+    
+    # 測試 Fibonacci 數列的平均值
+    print(f"Average of Fibonacci sequence up to {num}: {fibonacci_average(num)}")
+    
+    # 測試 Fibonacci 數列的最大值
+    print(f"Max of Fibonacci sequence up to {num}: {fibonacci_max(num)}")
+    
+    # 測試 Fibonacci 數列的最小值
+    print(f"Min of Fibonacci sequence up to {num}: {fibonacci_min(num)}")
+    
+    # 測試 Fibonacci 數列的中位數
+    print(f"Median of Fibonacci sequence up to {num}: {fibonacci_median(num)}")
