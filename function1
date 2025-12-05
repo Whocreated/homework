@@ -1,0 +1,117 @@
+#include <bits/stdc++.h>
+using namespace std;
+
+
+// 函數定義區域
+// 這些函數用於演示基本的函數概念
+
+// 函數聲明
+void greet(string name);
+int subtract(int a, int b);
+int divide(int a, int b);
+bool isEven(int num);
+int add(int a, int b);
+int multiply(int x, int y);
+void printNumbers(int n);
+void greet(string name) {
+    cout << "Hello, " << name << "!" << endl;
+}
+
+// 函數定義：計算兩個數字的差
+int subtract(int a, int b) {
+    return a - b;
+}
+
+// 函數定義：計算兩個數字的商（整數除法）
+int divide(int a, int b) {
+    if (b == 0) {
+        cout << "Error: Division by zero!" << endl;
+        return 0;
+    }
+    return a / b;
+}
+
+// 函數定義：檢查一個數字是否為偶數
+bool isEven(int num) {
+    return num % 2 == 0;
+}
+
+// 函數定義：計算兩個數字的和
+int add(int a, int b) {
+    return a + b;
+}
+
+// 函數定義：計算兩個數字的積
+int multiply(int x, int y) {
+    return x * y;
+}
+
+// 函數定義：印出從 1 到 n 的數字
+void printNumbers(int n) {
+    for (int i = 1; i <= n; i++) {
+        cout << i << " ";
+    }
+    cout << endl;
+}
+
+// 函數定義：返回兩個數字中的較大值
+int maximum(int a, int b) {
+    return (a > b) ? a : b;
+}
+
+// 函數定義：返回兩個數字中的較小值
+int minimum(int a, int b) {
+    return (a < b) ? a : b;
+}
+
+// 函數定義：計算一個數字的平方
+int square(int x) {
+    return x * x;
+}
+
+
+
+// 主函數
+int main(){
+
+
+    // 測試 greet 函數 - 輸出問候訊息
+    greet("Alice");
+
+    // 測試 add 函數 - 計算兩數之和
+    int sum = add(5, 3);
+    cout << "5 + 3 = " << sum << endl;
+
+    // 測試 multiply 函數 - 計算兩數之積
+    int product = multiply(4, 7);
+    cout << "4 * 7 = " << product << endl;
+
+    // 測試 printNumbers 函數 - 印出 1 到 10
+    cout << "Numbers: ";
+    printNumbers(10);
+
+    // 測試 greet 函數 - 輸出不同的問候訊息
+    greet("Bob");
+    greet("Charlie");
+
+    // 測試 add 函數 - 計算不同數字的和
+    int sum2 = add(10, 20);
+    cout << "10 + 20 = " << sum2 << endl;
+
+    // 測試 multiply 函數 - 計算不同數字的積
+    int product2 = multiply(3, 9);
+    cout << "3 * 9 = " << product2 << endl;
+
+    // 測試 printNumbers 函數 - 印出 1 到 5
+    cout << "Numbers: ";
+    printNumbers(5);
+
+
+
+    return 0;
+
+
+
+}
+
+
