@@ -1,0 +1,122 @@
+#include <bits/stdc++.h>
+
+using namespace std;
+
+
+
+const int n=5;
+
+
+
+int maxi(int arr[],int N) {
+
+int max=0;
+
+for (int i=0; i<N; i++) {
+
+if (max<arr[i]) {
+
+max=arr[i];
+
+}
+
+}
+
+return max;
+
+}
+
+
+
+int mini(int arr[], int N) {
+
+int min=arr[N];
+
+for (int i=0; i<N; i++) {
+
+if (min>arr[i]) {
+
+min=arr[i];
+
+}
+
+}
+
+return min;
+
+}
+
+
+
+int total(int arr[],int N) {
+
+int sum=0;
+
+for (int i=0; i<N; i++) {
+
+sum+=arr[i];
+
+}
+
+return sum;
+
+}
+
+
+
+void sorting(int arr[],int N) {
+
+sort(arr,arr+N);
+
+cout << "sorting-->";
+
+for (int i=0; i<N; i++) {
+
+cout << arr[i] << " ";
+
+}
+
+cout << endl;
+
+}
+
+
+
+void reverse(int arr[], int N) {
+
+sort(arr,arr+N);
+
+cout << "reverse-->";
+
+for (int i=N-1; i>=0; i--) {
+
+cout << arr[i] << " ";
+
+}
+
+cout << endl;
+
+}
+
+
+
+int main() {
+
+int a[n];
+
+for (int i=0; i<n; i++) {
+
+cin >> a[i];
+
+}
+
+cout << maxi(a,n) << " " << mini(a,n) << " " << total(a,n) << endl;
+
+sorting(a,n);
+
+reverse(a,n);
+
+
+
+}
+
