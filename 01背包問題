@@ -1,0 +1,23 @@
+def knapsack(n, items, ks):
+    # 建立 dp 陣列，初始值為 0
+    dp = [0] * (ks + 1)
+
+    # 對每個物品進行迭代
+    for w, v in items:
+        # 從背包容量 ks 到 w 反向更新 dp
+        for j in range(ks, w - 1, -1):
+            dp[j] = max(dp[j], dp[j - w] + v)
+
+    return dp[ks]
+
+# 輸入範例
+n = 4
+items = [(3, 20), (4, 45), (9, 70), (12, 85)]
+ks = 12
+
+# 計算最大價值
+max_value = knapsack(n, items, ks)
+print(f"背包最大的價值為 {max_value}")
+
+
+
