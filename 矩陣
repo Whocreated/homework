@@ -1,72 +1,72 @@
 
-#include <iostream>// 包含輸入輸出庫
-#include <vector>// 包含向量庫
-//可以用include<bits/stdc++.h>來包含所有標準庫
+#include <iostream> // 包含輸入輸出庫
+#include <vector>   // 包含向量庫
+using namespace std;
 
 // 生成螺旋矩陣的函數
 std::vector<std::vector<int>> generateSpiralMatrix(int n) { // n x n 矩陣
-    std::vector<std::vector<int>> matrix(n, std::vector<int>(n));// 初始化 n x n 矩陣
-    int left = 0, right = n - 1, top = 0, bottom = n - 1;// 定義邊界
-    int num = 1;// 從 1 開始填充數字
+    std::vector<std::vector<int>> matrix(n, std::vector<int>(n)); // 初始化 n x n 矩陣
+    int left = 0, right = n - 1, top = 0, bottom = n - 1; // 定義邊界
+    int num = 1; // 從 1 開始填充數字
 
     while (left <= right && top <= bottom) {
         // 填充上邊
-        for (int i = left; i <= right; ++i) {
+        for (int i = left; i <= right; i++) {
             matrix[top][i] = num++;
         }
-        top++;// 移動上邊界
+        top++; // 移動上邊界
 
         // 填充右邊
-        for (int i = top; i <= bottom; ++i) {
+        for (int i = top; i <= bottom; i++) {
             matrix[i][right] = num++;
         }
-        right--;// 移動右邊界
+        right--; // 移動右邊界
 
         // 填充下邊
         if (top <= bottom) {
-            for (int i = right; i >= left; --i) {
+            for (int i = right; i >= left; i--) {
                 matrix[bottom][i] = num++;
             }
-            bottom--;// 移動下邊界
+            bottom--; // 移動下邊界
         }
 
         // 填充左邊
         if (left <= right) {
-            for (int i = bottom; i >= top; --i) {
+            for (int i = bottom; i >= top; i--) { // 修正迴圈條件
                 matrix[i][left] = num++;
             }
-            left++;// 移動左邊界
+            left++; // 移動左邊界
         }
     }
 
-    return matrix;// 返回生成的矩陣
+    return matrix; // 返回生成的矩陣
 }
 
 // 打印矩陣的函數
-void printMatrix(const std::vector<std::vector<int>>& matrix) {// 接受一個矩陣作為參數
-    for (const auto& row : matrix) {// 遍歷每一行
+void printMatrix(const std::vector<std::vector<int>>& matrix) { // 接受一個矩陣作為參數
+    for (const auto& row : matrix) { // 遍歷每一行
         std::cout << std::string(row.size() * 2, '-') << std::endl; // 添加分隔線以提高清晰度
         for (int val : row) {
-            std::cout << val << " ";// 打印每個元素
+            std::cout << val << " "; // 打印每個元素
         }
-        std::cout << std::endl;// 換行
+        std::cout << std::endl; // 換行
     }
     std::cout << std::string(matrix.size() * 2, '-') << std::endl; // 添加分隔線以提高清晰度
 }
 
 int main() {
     int n;
-    std::cout << "請輸入矩陣的大小: ";// 提示使用者輸入矩陣大小
-    std::cin >> n;
+    std::cout << "請輸入矩陣的大小: "; // 提示使用者輸入矩陣大小
+    std::cin >> n;// 讀取使用者輸入
 
     // 輸入驗證
     if (n <= 0) {
-        std::cout << "大小必須是正整數。" << std::endl;// 錯誤提示
-        return 1;// 非正常結束
+        std::cout << "大小必須是正整數。" << std::endl; // 錯誤提示
+        return 1; // 非正常結束
     }
 
-    std::vector<std::vector<int>> spiralMatrix = generateSpiralMatrix(n);// 生成螺旋矩陣
-    printMatrix(spiralMatrix);// 打印矩陣
+    std::vector<std::vector<int>> spiralMatrix = generateSpiralMatrix(n); // 生成螺旋矩陣
+    printMatrix(spiralMatrix); // 打印矩陣
 
     return 0;
 }
